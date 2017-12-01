@@ -1,5 +1,5 @@
 //
-//  CategoryTableViewCell.swift
+//  QuestionTableViewCell.swift
 //  Quiz v2
 //
 //  Created by Vadim Shoshin on 01.12.2017.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CategoryTableViewCell: UITableViewCell {
-    @IBOutlet private weak var categoryNameLabel: UILabel!
+class QuestionTableViewCell: UITableViewCell {
+    @IBOutlet private weak var questionName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +22,7 @@ class CategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func update(_ category: Category) {
-        categoryNameLabel.text = category.name
+    func update(_ question: Question) {
+       questionName.text = question.question
     }
-
 }

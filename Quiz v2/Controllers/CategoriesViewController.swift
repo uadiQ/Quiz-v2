@@ -16,11 +16,21 @@ class CategoriesViewController: UIViewController {
        // DataManager.instance.loadCategories()
         tableView.dataSource = self
         tableView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(categoriesLoaded), name: .CategoriesLoaded, object: nil)
     }
     
     private func getCategory(for indexPath: IndexPath) -> Category {
         guard let categoryToLoad = DataManager.instance.getCategory(indexPath: indexPath) else {fatalError("Category with wrong indexPath")}
         return categoryToLoad
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showQuestionsList", let destVC = segue.destination as? QuestionsListViewController else { return }
+        guard let cell = sender as? UITableViewCell else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        let categoryToSend = getCategory(for: indexPath)
+        destVC.category = categoryToSend
     }
 
 }
@@ -43,5 +53,13 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.update(category)
         print(category.name)
         return cell
+    }
+}
+
+// MARK: - Notification extension
+
+extension CategoriesViewController {
+    @objc func categoriesLoaded() {
+        tableView.reloadData()
     }
 }
