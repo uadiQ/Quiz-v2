@@ -13,10 +13,9 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManager.instance.loadCategories()
+       // DataManager.instance.loadCategories()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
     }
     
     private func getCategory(for indexPath: IndexPath) -> Category {
@@ -42,7 +41,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         
         let category = getCategory(for: indexPath)
         cell.update(category)
-        tableView.reloadData()
+        print(category.name)
         return cell
     }
 }

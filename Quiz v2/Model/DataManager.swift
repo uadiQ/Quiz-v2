@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class DataManager {
     static let instance = DataManager()
-    private init() {}
+    private init() {loadCategories()}
     
     var categoriesArray: [Category] = []
     var questionsForCategories: [Int: Question] = [:]
