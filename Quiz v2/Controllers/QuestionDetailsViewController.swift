@@ -9,6 +9,7 @@
 import UIKit
 
 class QuestionDetailsViewController: UIViewController {
+    @IBOutlet private weak var questionLabel: UILabel!
     
     var questionToLoad: Question?
     var pageTitle: String?
@@ -18,8 +19,9 @@ class QuestionDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
+        guard let pageQuestion = questionToLoad else { return }
         guard let questionCategory = pageTitle else { return }
         title = questionCategory
-        
+        questionLabel.text = pageQuestion.question
     }
 }

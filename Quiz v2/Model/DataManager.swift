@@ -27,7 +27,6 @@ final class DataManager {
                     guard let category = Category(json: jsonObject) else { continue }
                     self.categoriesArray.append(category)
                 }
-                print(self.categoriesArray)
                 NotificationCenter.default.post(name: .CategoriesLoaded, object: nil)
             case .failure(let error):
                 print(error)
