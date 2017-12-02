@@ -22,12 +22,13 @@ class QuestionDetailsViewController: UIViewController {
     private func setupUI() {
         guard let pageQuestion = questionToLoad else { return }
         guard let questionCategory = pageTitle else { return }
+        
         title = questionCategory
         questionLabel.text = pageQuestion.question
-        answerButtons[0].setTitle(pageQuestion.option1, for: .normal)
-        answerButtons[1].setTitle(pageQuestion.option2, for: .normal)
-        answerButtons[2].setTitle(pageQuestion.option3, for: .normal)
-        answerButtons[3].setTitle(pageQuestion.option4, for: .normal)
+        
+        for i in 0..<answerButtons.count {
+            answerButtons[i].setTitle(pageQuestion.optionsArray[i], for: .normal)
+        }
     }
     
     private func gratz() {
