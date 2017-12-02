@@ -138,23 +138,93 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbp-lY-kI6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="181"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6MO-iv-tKn">
+                                <rect key="frame" x="27.5" y="430.5" width="320" height="140"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5CQ-bi-qrq">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hld-4y-FPV">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="anyAnswerButtonPressed:" destination="LOs-M3-Oj6" eventType="touchUpInside" id="R3E-qV-g2u"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwC-po-DWf">
+                                                <rect key="frame" x="170" y="0.0" width="150" height="60"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="anyAnswerButtonPressed:" destination="LOs-M3-Oj6" eventType="touchUpInside" id="dNn-Nc-Ikn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="E4V-TL-77g"/>
+                                            <constraint firstAttribute="height" constant="60" id="lRC-zJ-0GX"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Alz-MB-XFq">
+                                        <rect key="frame" x="0.0" y="80" width="320" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbN-77-QGu">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="anyAnswerButtonPressed:" destination="LOs-M3-Oj6" eventType="touchUpInside" id="bVa-vJ-0wm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhr-Ps-pys">
+                                                <rect key="frame" x="170" y="0.0" width="150" height="60"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="anyAnswerButtonPressed:" destination="LOs-M3-Oj6" eventType="touchUpInside" id="GXu-OK-MGU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ICP-Qn-a6y"/>
+                                            <constraint firstAttribute="width" constant="320" id="i5d-10-286"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6MO-iv-tKn" firstAttribute="centerY" secondItem="Kje-Y0-XXa" secondAttribute="centerY" multiplier="1.5" id="3SP-d8-ubh"/>
+                            <constraint firstItem="w2z-67-fb8" firstAttribute="trailing" secondItem="6MO-iv-tKn" secondAttribute="trailing" constant="27" id="3dN-Cs-1nW"/>
                             <constraint firstItem="Fbp-lY-kI6" firstAttribute="leading" secondItem="w2z-67-fb8" secondAttribute="leading" id="4Oj-zX-6ow"/>
-                            <constraint firstItem="Fbp-lY-kI6" firstAttribute="height" secondItem="w2z-67-fb8" secondAttribute="height" multiplier="0.3" id="JZD-k9-n7F"/>
+                            <constraint firstItem="Fbp-lY-kI6" firstAttribute="height" secondItem="w2z-67-fb8" secondAttribute="height" multiplier="0.5" id="JZD-k9-n7F"/>
                             <constraint firstItem="Fbp-lY-kI6" firstAttribute="top" secondItem="w2z-67-fb8" secondAttribute="top" id="Nhb-RB-i4c"/>
                             <constraint firstItem="w2z-67-fb8" firstAttribute="trailing" secondItem="Fbp-lY-kI6" secondAttribute="trailing" id="P1z-Ka-F3s"/>
+                            <constraint firstItem="6MO-iv-tKn" firstAttribute="leading" secondItem="w2z-67-fb8" secondAttribute="leading" constant="27" id="YLe-Hh-DbO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w2z-67-fb8"/>
                     </view>
                     <connections>
                         <outlet property="questionLabel" destination="Fbp-lY-kI6" id="CVP-nx-dhU"/>
+                        <outletCollection property="answerButtons" destination="Hld-4y-FPV" collectionClass="NSMutableArray" id="egg-4g-6nv"/>
+                        <outletCollection property="answerButtons" destination="KwC-po-DWf" collectionClass="NSMutableArray" id="tdk-gs-0Ke"/>
+                        <outletCollection property="answerButtons" destination="RbN-77-QGu" collectionClass="NSMutableArray" id="iOa-fe-xee"/>
+                        <outletCollection property="answerButtons" destination="Fhr-Ps-pys" collectionClass="NSMutableArray" id="p55-Wx-YBW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4C-XW-jxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
