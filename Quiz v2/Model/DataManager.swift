@@ -37,7 +37,7 @@ final class DataManager {
     
     func loadQuestions(for category: Category) {
         let id = category.id
-        Alamofire.request("|https://qriusity.com/v1/categories/\(id)/questions").responseJSON { response in
+        Alamofire.request("https://qriusity.com/v1/categories/\(id)/questions").responseJSON { response in
             switch response.result {
             case .success(let value):
                 let jsonObj = JSON(value)
@@ -48,7 +48,6 @@ final class DataManager {
                     tempQuestionsArray.append(question)
                     self.questionsForCategories[id] = tempQuestionsArray
                 }
-                print("success")
                 NotificationCenter.default.post(name: .QuestionsLoaded, object: nil)
             case .failure(let error):
                 print(error)
@@ -62,15 +61,5 @@ final class DataManager {
     func questions(of category: Category) -> [Question] {
         return questionsForCategories[category.id] ?? []
     }
-    
-//    func getQuestion(category: Category, indexPath: IndexPath) -> Question {
-//        let questionsOfCategory = getQuestionsOfCategory(category)
-//        if questionsOfCategory.isEmpty {
-//            print("Array is empty!!!!!!!!!")
-//            fatalError("Array is empty!!!!")
-//        } else {
-//            return questionsOfCategory[indexPath.row]
-//        }
-//
-//    }
+
 }

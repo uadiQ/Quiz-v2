@@ -16,19 +16,19 @@ class QuestionsListViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: .QuestionsLoaded, object: nil)
         
         guard let parentCategory = category else { return }
         title = parentCategory.name
+        
         questionsArray = DataManager.instance.questions(of: parentCategory)
         if questionsArray.isEmpty {
             DataManager.instance.loadQuestions(for: parentCategory)
-            questionsArray = DataManager.instance.questions(of: parentCategory)
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: .QuestionsLoaded, object: nil)
     }
     
     private func getQuestion(indexPath: IndexPath) -> Question {
-    return questionsArray[indexPath.row]
+        return questionsArray[indexPath.row]
     }
 }
 
@@ -39,7 +39,7 @@ extension QuestionsListViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return questionsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,6 +54,8 @@ extension QuestionsListViewController: UITableViewDelegate, UITableViewDataSourc
 // MARK: - Notification extension
 extension QuestionsListViewController {
     @objc func questionsLoaded() {
+        guard let categoryToLoad = category else { return }
+        questionsArray = DataManager.instance.questions(of: categoryToLoad)
         tableView.reloadData()
     }
 }
