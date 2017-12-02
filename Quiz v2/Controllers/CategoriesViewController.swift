@@ -26,11 +26,14 @@ class CategoriesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showQuestionsList", let destVC = segue.destination as? QuestionsListViewController else { return }
+        
         guard let cell = sender as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         
         let categoryToSend = getCategory(for: indexPath)
+        DataManager.instance.loadQuestions(for: categoryToSend)
         destVC.category = categoryToSend
+        destVC.questionsArray = DataManager.instance.questions(of: categoryToSend)
     }
 
 }

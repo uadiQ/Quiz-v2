@@ -59,18 +59,18 @@ final class DataManager {
     func getCategory(indexPath: IndexPath) -> Category? {
         return categoriesArray[indexPath.row]
     }
-    func getQuestionsOfCategory(_ category: Category) -> [Question] {
+    func questions(of category: Category) -> [Question] {
         return questionsForCategories[category.id] ?? []
     }
     
-    func getQuestion(category: Category, indexPath: IndexPath) -> Question {
-        let questionsOfCategory = getQuestionsOfCategory(category)
-        if questionsOfCategory.isEmpty {
-            print("Array is empty!!!!!!!!!")
-            fatalError("Array is empty!!!!")
-        } else {
-            return questionsOfCategory[indexPath.row]
-        }
-        
-    }
+//    func getQuestion(category: Category, indexPath: IndexPath) -> Question {
+//        let questionsOfCategory = getQuestionsOfCategory(category)
+//        if questionsOfCategory.isEmpty {
+//            print("Array is empty!!!!!!!!!")
+//            fatalError("Array is empty!!!!")
+//        } else {
+//            return questionsOfCategory[indexPath.row]
+//        }
+//
+//    }
 }
