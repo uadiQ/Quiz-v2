@@ -19,6 +19,7 @@
 		1C283DE61FD13EC000C76B95 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C283DE51FD13EC000C76B95 /* Notification+Extension.swift */; };
 		1C283DE81FD1ECC100C76B95 /* QuestionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C283DE71FD1ECC100C76B95 /* QuestionsListViewController.swift */; };
 		1C283DEA1FD1ECEF00C76B95 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C283DE91FD1ECEF00C76B95 /* QuestionTableViewCell.swift */; };
+		1C283DEC1FD3405800C76B95 /* QuestionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C283DEB1FD3405800C76B95 /* QuestionDetailsViewController.swift */; };
 		2142C1FD6BFB25C53A2EA250 /* Pods_Quiz_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D18C2EBDB9F484EDB30AA3C3 /* Pods_Quiz_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		1C283DE51FD13EC000C76B95 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		1C283DE71FD1ECC100C76B95 /* QuestionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsListViewController.swift; sourceTree = "<group>"; };
 		1C283DE91FD1ECEF00C76B95 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		1C283DEB1FD3405800C76B95 /* QuestionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailsViewController.swift; sourceTree = "<group>"; };
 		9F2E7C92E34174E51F209706 /* Pods-Quiz v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quiz v2/Pods-Quiz v2.debug.xcconfig"; sourceTree = "<group>"; };
 		D18C2EBDB9F484EDB30AA3C3 /* Pods_Quiz_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quiz_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6851AA16F81FD71D94AC2B9 /* Pods-Quiz v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quiz v2/Pods-Quiz v2.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				1C283DC61FD0CE8300C76B95 /* Main.storyboard */,
 				1C283DD91FD0D04F00C76B95 /* CategoriesViewController.swift */,
 				1C283DE71FD1ECC100C76B95 /* QuestionsListViewController.swift */,
+				1C283DEB1FD3405800C76B95 /* QuestionDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				1C283DDE1FD0D15700C76B95 /* DataManager.swift in Sources */,
 				1C283DE21FD0D17900C76B95 /* Question.swift in Sources */,
 				1C283DE61FD13EC000C76B95 /* Notification+Extension.swift in Sources */,
+				1C283DEC1FD3405800C76B95 /* QuestionDetailsViewController.swift in Sources */,
 				1C283DC31FD0CE8300C76B95 /* AppDelegate.swift in Sources */,
 				1C283DEA1FD1ECEF00C76B95 /* QuestionTableViewCell.swift in Sources */,
 				1C283DE81FD1ECC100C76B95 /* QuestionsListViewController.swift in Sources */,

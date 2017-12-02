@@ -13,7 +13,10 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // DataManager.instance.loadCategories()
+        setupTableSetting()
+    }
+    
+    private func setupTableSetting() {
         tableView.dataSource = self
         tableView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(categoriesLoaded), name: .CategoriesLoaded, object: nil)
@@ -26,13 +29,12 @@ class CategoriesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showQuestionsList", let destVC = segue.destination as? QuestionsListViewController else { return }
-        
         guard let cell = sender as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let categoryToSend = getCategory(for: indexPath)
-        destVC.category = categoryToSend
+        
+        destVC.category = getCategory(for: indexPath)
     }
-
+    
 }
 
 // MARK: - TableView extensions

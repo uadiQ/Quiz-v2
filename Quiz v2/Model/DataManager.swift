@@ -14,10 +14,10 @@ final class DataManager {
     static let instance = DataManager()
     private init() {loadCategories()}
     
-    var categoriesArray: [Category] = []
-    var questionsForCategories: [Int: [Question]] = [:]
+    private(set) var categoriesArray: [Category] = []
+    private(set) var questionsForCategories: [Int: [Question]] = [:]
     
-    func loadCategories() {
+    private func loadCategories() {
         Alamofire.request("https://qriusity.com/v1/categories/").responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -61,5 +61,5 @@ final class DataManager {
     func questions(of category: Category) -> [Question] {
         return questionsForCategories[category.id] ?? []
     }
-
+    
 }

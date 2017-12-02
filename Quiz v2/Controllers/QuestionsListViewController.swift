@@ -14,13 +14,19 @@ class QuestionsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableSetting()
+        setupTableUI()
+    }
+    
+    private func setupTableSetting() {
         tableView.delegate = self
         tableView.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: .QuestionsLoaded, object: nil)
-        
+    }
+    
+    private func setupTableUI() {
         guard let parentCategory = category else { return }
         title = parentCategory.name
-        
         questionsArray = DataManager.instance.questions(of: parentCategory)
         if questionsArray.isEmpty {
             DataManager.instance.loadQuestions(for: parentCategory)
@@ -29,6 +35,16 @@ class QuestionsListViewController: UIViewController {
     
     private func getQuestion(indexPath: IndexPath) -> Question {
         return questionsArray[indexPath.row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showQuestionDetails", let destVC = segue.destination as? QuestionDetailsViewController
+            else { return }
+        guard let cell = sender as? UITableViewCell else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        destVC.questionToLoad = self.getQuestion(indexPath: indexPath)
+        destVC.pageTitle = self.category?.name
     }
 }
 
