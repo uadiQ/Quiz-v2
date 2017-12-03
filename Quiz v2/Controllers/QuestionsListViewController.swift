@@ -6,6 +6,7 @@
 //  Copyright © 2017 Vadim Shoshin. All rights reserved.
 //
 import UIKit
+import PKHUD
 
 class QuestionsListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
@@ -29,6 +30,7 @@ class QuestionsListViewController: UIViewController {
         title = parentCategory.name
         questionsArray = DataManager.instance.questions(of: parentCategory)
         if questionsArray.isEmpty {
+            HUD.show(.progress)
             DataManager.instance.loadQuestions(for: parentCategory)
         }
     }
@@ -59,7 +61,7 @@ extension QuestionsListViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionTableViewCell", for: indexPath) as? QuestionTableViewCell else { fatalError("Cell with wrong identifier") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: QuestionTableViewCell.cellID, for: indexPath) as? QuestionTableViewCell else { fatalError("Cell with wrong identifier") }
         
         let question = getQuestion(indexPath: indexPath)
         cell.update(question)
@@ -72,6 +74,7 @@ extension QuestionsListViewController {
     @objc func questionsLoaded() {
         guard let categoryToLoad = category else { return }
         questionsArray = DataManager.instance.questions(of: categoryToLoad)
+        HUD.hide()
         tableView.reloadData()
     }
 }

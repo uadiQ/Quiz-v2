@@ -11,6 +11,8 @@ import UIKit
 class QuestionTableViewCell: UITableViewCell {
     @IBOutlet private weak var questionName: UILabel!
     
+    static let cellID = "QuestionTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none

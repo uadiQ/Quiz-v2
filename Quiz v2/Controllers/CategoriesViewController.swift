@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class CategoriesViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
@@ -14,6 +15,7 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableSetting()
+        HUD.show(.progress)
     }
     
     private func setupTableSetting() {
@@ -23,7 +25,7 @@ class CategoriesViewController: UIViewController {
     }
     
     private func getCategory(for indexPath: IndexPath) -> Category {
-        guard let categoryToLoad = DataManager.instance.getCategory(indexPath: indexPath) else {fatalError("Category with wrong indexPath")}
+        let categoryToLoad = DataManager.instance.categoriesArray[indexPath.row]
         return categoryToLoad
     }
     
@@ -49,7 +51,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { fatalError("Cell with wrong identifier") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.cellID, for: indexPath) as? CategoryTableViewCell else { fatalError("Cell with wrong identifier") }
         
         let category = getCategory(for: indexPath)
         cell.update(category)
@@ -62,6 +64,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension CategoriesViewController {
     @objc func categoriesLoaded() {
+        HUD.hide()
         tableView.reloadData()
     }
 }

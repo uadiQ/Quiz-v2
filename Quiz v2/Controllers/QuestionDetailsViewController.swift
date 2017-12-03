@@ -51,10 +51,9 @@ class QuestionDetailsViewController: UIViewController {
         
         if sender.tag == answer {
             gratz()
-            return
         } else {
             tryAgain()
-            return
         }
+        return
     }
 }

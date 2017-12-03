@@ -10,10 +10,6 @@ import SwiftyJSON
 
 struct Question {
     let question: String
-    let option1: String
-    let option2: String
-    let option3: String
-    let option4: String
     let id: Int
     let answer: Int
     var optionsArray: [String] = []
@@ -25,10 +21,10 @@ extension Question {
         
         self.id = id
         self.question = question
-        self.option1 = json["option1"].stringValue
-        self.option2 = json["option2"].stringValue
-        self.option3 = json["option3"].stringValue
-        self.option4 = json["option4"].stringValue
+        let option1 = json["option1"].stringValue
+        let option2 = json["option2"].stringValue
+        let option3 = json["option3"].stringValue
+        let option4 = json["option4"].stringValue
         self.answer = json["answers"].intValue - 1
         optionsArray = [option1, option2, option3, option4]
     }

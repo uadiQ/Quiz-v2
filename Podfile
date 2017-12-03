@@ -9,5 +9,6 @@ target 'Quiz v2' do
 pod 'SwiftLint'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'PKHUD', '~> 5.0'
 
 end

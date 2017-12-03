@@ -11,6 +11,8 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var categoryNameLabel: UILabel!
     
+    static let cellID = "CategoryTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none

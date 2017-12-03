@@ -54,9 +54,10 @@ final class DataManager {
         }
     }
     
-    func getCategory(indexPath: IndexPath) -> Category? {
-        return categoriesArray[indexPath.row]
-    }
+//    func getCategory(indexPath: IndexPath) -> Category? {
+//        return categoriesArray[indexPath.row]
+//    }
+    
     func questions(of category: Category) -> [Question] {
         return questionsForCategories[category.id] ?? []
     }
