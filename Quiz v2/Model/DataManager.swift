@@ -12,12 +12,12 @@ import SwiftyJSON
 
 final class DataManager {
     static let instance = DataManager()
-    private init() {loadCategories()}
+    private init() {}
     
     private(set) var categoriesArray: [Category] = []
     private(set) var questionsForCategories: [Int: [Question]] = [:]
     
-    private func loadCategories() {
+    func loadCategories() {
         Alamofire.request("https://qriusity.com/v1/categories/").responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -53,11 +53,7 @@ final class DataManager {
             }
         }
     }
-    
-//    func getCategory(indexPath: IndexPath) -> Category? {
-//        return categoriesArray[indexPath.row]
-//    }
-    
+
     func questions(of category: Category) -> [Question] {
         return questionsForCategories[category.id] ?? []
     }

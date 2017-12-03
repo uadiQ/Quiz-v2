@@ -15,6 +15,7 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableSetting()
+        DataManager.instance.loadCategories()
         HUD.show(.progress)
     }
     

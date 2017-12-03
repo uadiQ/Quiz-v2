@@ -54,6 +54,5 @@ class QuestionDetailsViewController: UIViewController {
         } else {
             tryAgain()
         }
-        return
     }
 }
