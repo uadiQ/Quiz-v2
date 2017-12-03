@@ -56,7 +56,6 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         
         let category = getCategory(for: indexPath)
         cell.update(category)
-        print(category.name)
         return cell
     }
 }
